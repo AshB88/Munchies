@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className="display-flex justify-space-between align-center py-2 px-5 mint-green">
       <h1>
-        Authentication Review
+        Munchies
       </h1>
       <div>
         {
@@ -34,9 +34,15 @@ const Navbar = () => {
             </button>
           ) : (
             // Render logout button if user is logged in
-            <button className="btn" type='button' onClick={() => {
-              auth.logout();  // Call logout() method from auth utility on button click
-            }}>Logout</button>
+            <>
+              <button className="btn" type='button' onClick={() => {
+                auth.logout();  // Call logout() method from auth utility on button click
+              }}>Logout</button>
+              <div>
+                <Link to='/'>Home</Link>
+                {/* <Link to='/purchased-list'>Purchased List</Link> */}
+              </div>
+            </>
           )
         }
       </div>
