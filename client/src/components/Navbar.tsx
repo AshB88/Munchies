@@ -40,7 +40,7 @@ const Navbar = () => {
               }}>Logout</button>
               <div>
                 <Link to='/'>Home</Link>
-                <Link to='/purchased-list'>Purchased List</Link>
+                <Link to='/PurchasedItems'>Purchased Items</Link>
               </div>
             </>
           )
