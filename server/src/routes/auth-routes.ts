@@ -3,11 +3,11 @@ import { User } from '../models/user.js';  // Import the User model
 import jwt from 'jsonwebtoken';  // Import the JSON Web Token library
 import bcrypt from 'bcrypt';  // Import the bcrypt library for password hashing
 
-// Login function to authenticate a user
+// Login function 
 export const login = async (req: Request, res: Response) => {
   const { username, password } = req.body;  // Extract username and password from request body
 
-  // Find the user in the database by username
+  // Find the user by username
   const user = await User.findOne({
     where: { username },
   });
