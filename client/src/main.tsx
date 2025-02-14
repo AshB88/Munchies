@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Login />
       }, 
       {
-        path: '/purchased-list',
+        path: '/PurchasedItems',
         element: <PurchasedItems />
       }
     ]
