@@ -15,7 +15,7 @@ const sequelize = process.env.DB_URL
         dialectOptions: {
           decimalNumbers: true,
         },
-      }
+      },
     );
 
 export default sequelize;
