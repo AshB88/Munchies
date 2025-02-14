@@ -42,6 +42,8 @@ This application is accessible in any web browser using the link above. No insta
 
 5. Next, you will need to set up your database. Using the schema.sql file in the server > db folder, create the munchies_db in a PostgreSQL application, such as DBeaver.
 
+   ![database creation in DBeaver](./assets/database.png)
+
 6. You will need to connect the repo to the database. In the server folder, change the ".env.EXAMPLE" file to ".env", and fill out your username and password. If you are using DBeaver for your database, this would be your DBeaver username and password.
 
 7. Now, you need to seed the database. Navigate to the Munchies directory on your local device, and run the following:
@@ -55,6 +57,8 @@ This application is accessible in any web browser using the link above. No insta
    ```sh
    npm run start
    ```
+
+9. The server should be listening on port 3001. You can use an app, like Insomnia, to test this, or you can view this in your browser.
 
 ## Usage
 
@@ -79,15 +83,15 @@ The application can be used in the web browser or on your local device from port
 
     ![grocery list form](./assets/???)
 
-4. To move an item to the Purchased List, click the ?? icon. Navigate to the Purchased List page using the navigation bar at the top, and the item should appear on that page.
+4.  To move an item to the Purchased List, click the ?? icon. Navigate to the Purchased List page using the navigation bar at the top, and the item should appear on that page.
 
     ![Purchased List page](./assets/???)
 
-5. To discard an item on your grocery list, click the trash can icon.
+5.  To discard an item on your grocery list, click the trash can icon.
 
     ![trash can icon](./assets/???)
 
-6. Hit "Log out" when you are ready to log out.
+6.  Hit "Log out" when you are ready to log out.
 
 ## Credits
 
