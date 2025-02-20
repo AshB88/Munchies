@@ -4,6 +4,7 @@ import type { UserData } from "../interfaces/UserData";
 import ErrorPage from "./ErrorPage";
 import UserList from '../components/Users';
 import auth from '../utils/auth';
+import GroceryList from './GroceryList';
 
 const Home = () => {
 
@@ -45,13 +46,13 @@ const Home = () => {
         <>
             {
                 !loginCheck ? (
-                    <div className='login-notice'>
-                        <h1>
-                            Login to view all your friends!
-                        </h1>
+                    <div>
+                       <h1>
+                        Munchies
+                       </h1>
                     </div>
                 ) : (
-                    <UserList users={users} />
+                    <><UserList users={users} /><GroceryList /></>
                 )}
         </>
     );
