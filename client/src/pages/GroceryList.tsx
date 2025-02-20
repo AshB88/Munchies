@@ -10,19 +10,6 @@ interface GroceryItem {
   date: string; // Date when the item is added
 }
 
-  <table className="border-collapse border border-gray-300 w-full">
-    {/* Table Header */}
-    <thead>
-      <tr className="bg-gray-200">
-        <th className="border border-gray-400 px-4 py-2">Item</th>
-        <th className="border border-gray-400 px-4 py-2">Amount</th>
-        <th className="border border-gray-400 px-4 py-2">Price</th>
-        <th className="border border-gray-400 px-4 py-2">Store</th>
-        <th className="border border-gray-400 px-4 py-2">Date</th>
-      </tr>
-    </thead>
-  </table>
-
 const GroceryList: React.FC = () => {
   // State to hold the list of grocery items
   const [groceryList, setGroceryList] = useState<GroceryItem[]>([]);
