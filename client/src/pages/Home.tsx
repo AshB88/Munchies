@@ -50,6 +50,7 @@ const Home = () => {
                        <h1>
                         Munchies
                        </h1>
+                    <div className='login-notice'>
                     </div>
                 ) : (
                     <><UserList users={users} /><GroceryList /></>
