@@ -1,0 +1,44 @@
+:root {
+    --primary: #89937C;
+    --secondary: #715B64;
+    --tertiary: #C1AE9F;
+    --dark: #69385C;
+    --light: #D3BDB0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary);
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary);
+    color: var(--light);
+    padding: 10px 20px;
+}
+
+button {
+    background-color: var(--tertiary);
+    border: var(--primary) 2px solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+button a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+    border: var(--dark) 2px dashed;
+}
