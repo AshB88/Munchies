@@ -1,19 +1,10 @@
 :root {
-    /*
-    --primary: #89937C;
-    --secondary: #715B64;
-    --tertiary: #C1AE9F;
-    --dark: #69385C;
-    --light: #D3BDB0;
-    */
-    /* New colors */
-    
-    --primary: #7F9172;
-    --secondary: #B49594;
-    --tertiary: #C9B1BD;
-    --dark: #567568;
-    --light: #D5DFE5;
-    
+    /* Neon colors */
+    --primary: #C38918;
+    --secondary: #36033A;
+    --tertiary: #2D3B05;
+    --dark: #41020A;
+    --light: #B90F2E;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -22,6 +13,142 @@
     -webkit-text-size-adjust: 100%;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: var(--light);
+    background-image: url("../assets/munchiesNeon3.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    position: fixed;  /* Or fixed if you want it to stick at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 1000; /* Ensure it's above other elements */
+    border-bottom: var(--primary) 4px solid;
+    box-shadow: var(--primary) 0px 1px 5px;
+}
+
+header h1 {
+    color: var(--light);
+    padding: 15px;
+    margin: 0;
+    font-size: 4vw;
+    line-height: 1;
+    text-shadow: var(--light) 0 0 5px;
+    background-color: var(--primary);
+    border-radius: 0 10px 10px 0px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 5px;
+    padding-right: 0px, 10px;
+}
+
+.navbar button {
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+    border-radius: 5px;
+}
+
+.navbar button a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar button:hover {
+    background-color: var(--secondary);
+    color: var(--light);
+    border: var(--light) 2px solid;
+    box-shadow: var(--light) 2px 2px 10px;
+}
+
+.navbar button a:hover {
+    color: var(--light);
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 5px;  
+    background-color: var(--primary);
+    box-shadow: var(--primary) 0px 1px 5px;
+    list-style: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 5px 10px;
+
+}
+
+.login-notice {
+    text-align: center;
+    background: rgba(195, 137, 24, 0.8);
+    padding: 30px 30px;
+    border-radius: 10px;
+    width: 900px;
+    max-width: 400px; /* Keeps form from stretching too wide */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: var(--secondary);
+    text-shadow: var(--light) 0 0 10px;
+}
+
+@media screen and (max-width: 980px) {
+    header {
+      padding: 0 0 10px 0;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    header h1 {
+      width: 100%;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      font-size: 10vw;
+      background-color: var(--primary);
+      color: var(--tertiary);
+      text-shadow: var(--secondary) 0 0 10px;
+    }
+
+    .navbar button a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+
+
+/* New CSS */
+/*
 body {
     background-color: var(--dark);
     margin: 0;
@@ -86,7 +213,7 @@ header h1 {
       justify-content: center;
       text-align: center;
     }
-  
+
     header h1 {
       width: 100%;
       padding-bottom: 10px;
@@ -101,22 +228,26 @@ header h1 {
         text-decoration: none;
         font-weight: bold;
     }
-  }
+}
   
-  @media screen and (max-width:768px) {
-     header {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
+@media screen and (max-width:768px) {
+   header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
+}
   
-  @media screen and (max-width: 495px) {
-    header h1 {
-      font-size: 20vw;
-    }
-  
+@media screen and (max-width: 495px) {
+  header h1 {
+    font-size: 20vw;
   }
+
+
+*/
+
+
+
 
 
 /* Original CSS */

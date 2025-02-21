@@ -1,3 +1,78 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  /* Ensure full width */
+    height: calc(100vh - 80px);  /* Subtract header height */
+    margin-top: 80px;  /* Push it below the fixed header */
+    position: fixed;
+    z-index: 1;
+    margin-top: calc(4vw + 20px); /* Adjust based on header's font size */
+    
+}
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    background: rgba(195, 137, 24, 0.8);
+    padding: 50px 50px;
+    border-radius: 10px;
+    width: 900px;
+    max-width: 400px; /* Keeps form from stretching too wide */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding-top: 20px;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 5px;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: var(--dark) 3px solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.login-form button {
+    padding: 10px 10px;
+    background-color: transparent;
+    color: var(--dark);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.form-container button:hover {
+    color: var(--light);
+    text-shadow: var(--light) 0 0 10px;
+    background: rgba(45, 59, 5, 0.8)
+}
+
+
+
+/* New CSS */
+/*
 .form-container {
     display: flex;
     flex-direction: column;
@@ -57,6 +132,7 @@ button:hover {
     background-color: var(--light);
     color: var(--dark)
 }
+*/
 
 /*original css*/
 /*
