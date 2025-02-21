@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import auth from '../utils/auth';
-import GroceryList from './GroceryList';
+import GroceryList from './GroceryPage';
 
 const Home = () => {
     const [loginCheck, setLoginCheck] = useState(false);
