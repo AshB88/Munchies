@@ -20,11 +20,11 @@ const Navbar = () => {
   }, [loginCheck]);  // Dependency array ensures useEffect runs when loginCheck changes
 
   return (
-    <div className="navbar">
+    <header>
       <h1>
         Munchies
       </h1>
-      <div>
+      <div className="navbar">
         {
           // Conditional rendering based on loginCheck state
           !loginCheck ? (
@@ -46,7 +46,7 @@ const Navbar = () => {
           )
         }
       </div>
-    </div>
+    </header>
   )
 }
 

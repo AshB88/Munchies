@@ -1,26 +1,155 @@
 :root {
+    /*
     --primary: #89937C;
     --secondary: #715B64;
     --tertiary: #C1AE9F;
     --dark: #69385C;
     --light: #D3BDB0;
+    */
+    /* New colors */
+    
+    --primary: #7F9172;
+    --secondary: #B49594;
+    --tertiary: #C9B1BD;
+    --dark: #567568;
+    --light: #D5DFE5;
+    
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
+body {
+    background-color: var(--dark);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--secondary);
+    box-shadow: 0 5px 35px rgba(146, 204, 206, 0.4);
+    padding-bottom: 10px;
+    background-image: linear-gradient(to right, var(--dark), var(--primary), var(--dark));
+}
+
+header h1 {
+    color: var(--dark);
+    padding: 10px;
+    margin: 0;
+    font-size: 4vw;
+    line-height: 1;
+    text-shadow: var(--primary) 0 0 10px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 5px;
+}
+
+.navbar button {
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.navbar button a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 980px) {
+    header {
+      padding: 0 0 10px 0;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    header h1 {
+      width: 100%;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      font-size: 10vw;
+      background-color: var(--dark);
+      color: var(--light)
+    }
+
+    .navbar button a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: bold;
+    }
+  }
+  
+  @media screen and (max-width:768px) {
+     header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  @media screen and (max-width: 495px) {
+    header h1 {
+      font-size: 20vw;
+    }
+  
+  }
+
+
+/* Original CSS */
+/*
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--primary);
     color: var(--dark);
     margin: 0;
     padding: 0;
+    height: 100vh;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--secondary);
-    color: var(--light);
+    background-image: linear-gradient(to right, var(--dark), var(--primary), var(--dark));
     padding: 10px 20px;
+    border-bottom: var(--dark) 4px solid;
+    box-shadow: var(--dark) 0px 1px 5px;
+}
+
+.navbar h1 {
+    text-shadow: var(--primary) 0px 2px 18px;
+    padding: 5px;
+    border-radius: 10px;
+    color: var(--light);
+}
+
+.navbar button {
+    background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+    box-shadow: var(--primary) -2px 2px 10px;
 }
 
 button {
@@ -40,5 +169,8 @@ button a {
 button:hover {
     background-color: var(--primary);
     color: var(--dark);
-    border: var(--dark) 2px dashed;
+    border: var(--dark) 2px solid;
+    box-shadow: var(--dark) 2px 2px 10px;
 }
+*/
+
