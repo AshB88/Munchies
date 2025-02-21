@@ -14,7 +14,9 @@ const Home = () => {
     return (
         <>
             {!loginCheck ? (
-                <div className='login-notice'></div>
+                <div className='login-notice'>
+                    <h2>Please log in to view your grocery list!</h2>
+                </div>
             ) : (
                 <GroceryList />
             )}

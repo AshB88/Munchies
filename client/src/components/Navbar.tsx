@@ -29,18 +29,32 @@ const Navbar = () => {
           // Conditional rendering based on loginCheck state
           !loginCheck ? (
             // Render login button if user is not logged in
+            /*
             <button className="btn" id="login" type='button'>
               <Link to='/login'>Login</Link>
             </button>
+            */
+            <div>
+              <ul className="nav-links">
+                <li className="nav-item"><Link to='/login'>Login</Link></li>
+              </ul>
+            </div>
           ) : (
             // Render logout button if user is logged in
             <>
+            {/*
               <button className="btn" id="logout" type='button' onClick={() => {
                 auth.logout();  // Call logout() method from auth utility on button click
               }}>Logout</button>
+            */}
               <div>
-                <Link to='/'>Home</Link>
-                <Link to='/PurchasedItems'>Purchased Items</Link>
+                <ul className="nav-links">
+                  <li className="nav-item"><Link to='/'>Home</Link></li>
+                  <li className="nav-item"><Link to='/PurchasedItems'>Purchased Items</Link></li>
+                  <li className="nav-item"><Link to='/login' onClick={() => {
+                    auth.logout();  // Call logout() method from auth utility on button click
+                  }}>Logout</Link></li>
+                </ul>
               </div>
             </>
           )
