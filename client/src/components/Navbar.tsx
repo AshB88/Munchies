@@ -51,7 +51,7 @@ const Navbar = () => {
                 <ul className="nav-links">
                   <li className="nav-item"><Link to='/'>Home</Link></li>
                   <li className="nav-item"><Link to='/PurchasedItems'>Purchased Items</Link></li>
-                  <li className="nav-item"><Link to='/login' onClick={() => {
+                  <li className="nav-item"><Link to='/' onClick={() => {
                     auth.logout();  // Call logout() method from auth utility on button click
                   }}>Logout</Link></li>
                 </ul>
