@@ -46,7 +46,7 @@ header h1 {
     color: var(--light);
     padding: 15px;
     margin: 0;
-    font-size: 4vw;
+    font-size: 3vw;
     line-height: 1;
     text-shadow: var(--light) 0 0 5px;
     background-color: var(--primary);
@@ -60,30 +60,6 @@ header h1 {
     list-style: none;
     margin: 5px;
     padding-right: 0px, 10px;
-}
-
-.navbar button {
-    background-color: transparent;
-    border: none;
-    font-size: larger;
-    border-radius: 5px;
-}
-
-.navbar button a {
-    color: var(--secondary);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.navbar button:hover {
-    background-color: var(--secondary);
-    color: var(--light);
-    border: var(--light) 2px solid;
-    box-shadow: var(--light) 2px 2px 10px;
-}
-
-.navbar button a:hover {
-    color: var(--light);
 }
 
 .nav-links {
@@ -102,7 +78,37 @@ header h1 {
 .nav-links a {
     text-decoration: none;
     padding: 5px 10px;
+    font-size: large;
+}
 
+.nav-links a:hover {
+    color: var(--tertiary);
+    text-shadow: var(--light) 0 0 10px;
+}
+
+main {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  /* Ensure full width */
+    height: calc(100vh - 81px);  /* Subtract header height */
+    /*margin-top: 81px;  /* Push it below the fixed header */
+    /*position: fixed;
+    z-index: 1;
+    */
+    /* margin-top: calc(4vw + 20px); /* Adjust based on header's font size */
+    position: relative;
+    top: 81px; /* Adjust based on header height */
+    width: 100%;
+    overflow-y: auto; /* Enable scrolling */
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+    overflow-y: auto;
+}
+
+main::-webkit-scrollbar {
+    display: none;
 }
 
 .login-notice {
@@ -119,19 +125,25 @@ header h1 {
 
 @media screen and (max-width: 980px) {
     header {
-      padding: 0 0 10px 0;
-      justify-content: center;
-      text-align: center;
+        padding: 0 0 10px 0;
+        justify-content: center;
+        text-align: center;
     }
     
     header h1 {
-      width: 100%;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      font-size: 10vw;
-      background-color: var(--primary);
-      color: var(--tertiary);
-      text-shadow: var(--secondary) 0 0 10px;
+        width: 100%;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        font-size: 10vw;
+        background-color: var(--primary);
+        color: var(--tertiary);
+        text-shadow: var(--secondary) 0 0 10px;
+        border-radius: 0;
+    }
+
+    .nav-links {
+        border-radius: 0;
+        margin: 0;
     }
 
     .navbar button a {
@@ -139,6 +151,7 @@ header h1 {
         text-decoration: none;
         font-weight: bold;
     }
+
 }
 
 

@@ -1,3 +1,4 @@
+/*
 .grocery-list {
   list-style-type: none;
   padding: 0;
@@ -33,5 +34,83 @@
 .delete-icon:hover {
   color: red;
 }
+*/
 
+.grocery-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 80%;
+  height: 90%;
+}
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(195, 137, 24, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* Ensure the containers do not stretch too wide */
+  height: 425px;
+  overflow: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+.card::-webkit-scrollbar {
+  display: none;
+}
+
+#grocery-form-container {
+  flex: 1;
+}
+
+#grocery-list-container {
+  flex: 1;
+}
+
+.grocery-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.icon-container {
+  display: flex;
+  gap: 10px;
+}
+
+.favorite-icon:hover {
+  color: gold;
+}
+
+.purchased-icon:hover {
+  color: green;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+@media screen and (max-width: 980px) {
+  
+  .card {
+    height: 100px;
+  }
+
+  .grocery-page-container {
+    padding-top: 250px;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+  }
+}

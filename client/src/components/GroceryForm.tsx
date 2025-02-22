@@ -30,7 +30,8 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
   };
 
   return (
-    <div className="form-container">
+    <div>
+      <h2>Add Item</h2>
       <div className="input-group">
         <label>Item</label>
         <input type="text" value={newItem.name} onChange={(e) => setNewItem({ ...newItem, name: e.target.value })} />
