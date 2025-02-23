@@ -1,0 +1,175 @@
+/*
+.purchased-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    margin: 0;
+    position: fixed;
+    margin-top: 150px;
+}
+
+.purchased-items h1 {
+    color: var(--secondary);
+    text-shadow: var(--primary) 0 0 20px;
+    font-size: 3rem;
+}
+
+.purchased-items table {
+    table-layout: fixed;
+    width: 90%;
+    border-collapse: collapse; /* Ensure borders collapse into a single border */
+/*    border: var(--tertiary) 2px solid;
+    height: 400px;
+}
+*/
+/*
+.purchased-items th {
+    width: auto; /* Allow thead cells to adjust their width *//*
+    border: var(--tertiary) 2px solid;
+    color: var(--secondary);
+    text-shadow: var(--secondary) 0 0 10px;
+    font-size: 2rem;
+}
+
+.purchased-items tbody {
+    /*overflow: hidden;*//*
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge *//*
+    scrollbar-width: none;  /* Hide scrollbar for Firefox *//*
+    overflow: hidden;
+}
+
+.purchased-items tr {
+    border-radius: 10px;
+    background: rgba(195, 137, 24, 0.8);
+  }
+
+.purchased-items table td {
+    width: 150px;
+    height: 15px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word; 
+    white-space: normal;
+    border: var(--tertiary) 2px solid;
+    color: var(--dark);
+  }
+*/
+
+.purchased-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-height: 80vh; /* Ensure the container does not exceed the viewport height */
+    overflow: hidden;
+}
+
+.purchased-items h1 {
+    color: var(--secondary);
+    text-shadow: var(--primary) 0 0 20px;
+    font-size: 3rem;
+}
+
+.purchased-items table {
+    table-layout: fixed;
+    width: 100%;
+    min-width: 430px;
+    border-collapse: collapse; /* Ensure borders collapse into a single border */
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.purchased-items th {
+    width: auto; /* Allow thead cells to adjust their width */
+    border-bottom: var(--tertiary) 2px solid;
+    color: var(--secondary);
+    text-shadow: var(--secondary) 0 0 10px;
+    font-size: 1.7rem;
+}
+
+.purchased-items tbody {
+    display: block;
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+.purchased-items tbody::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.purchased-items tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background: rgba(195, 137, 24, 0.8);
+}
+
+.purchased-items table td {
+    width: 150px;
+    height: 15px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word; 
+    white-space: normal;
+    border-bottom: var(--tertiary) 2px solid;
+    color: var(--dark);
+}
+
+td button {
+    background-color: transparent;
+    border: none;
+    color: var(--tertiary);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+td button:hover {
+    color: var(--secondary);
+    text-shadow: var(--light) 0 0 10px;
+}
+
+/* Add media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .purchased-items table {
+        width: 100%;
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+
+    .purchased-items th, .purchased-items td {
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+
+    .purchased-items th {
+        font-size: 1.2rem; /* Adjust header font size for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .purchased-items table {
+        width: 100%;
+        font-size: 0.8rem; /* Further adjust font size for very small screens */
+    }
+
+    .purchased-items th, .purchased-items td {
+        padding: 3px; /* Further adjust padding for very small screens */
+    }
+
+    .purchased-items th {
+        font-size: 1rem; /* Further adjust header font size for very small screens */
+    }
+}

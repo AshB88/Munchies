@@ -11,6 +11,9 @@ const Login = () => {
     password: '' 
   });
 
+  // State to manage the login error message
+  const [loginError, setLoginError] = useState<string>('');
+
   // Handle changes in the input fields
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -30,6 +33,7 @@ const Login = () => {
       Auth.login(data.token);
     } catch (err) {
       console.error('Failed to login', err);  // Log any errors that occur during login
+      setLoginError('Incorrect username or password');  // Set the login error message
     }
   };
 
@@ -58,6 +62,8 @@ const Login = () => {
             onChange={handleChange}
           />
         </div>
+        {/* Display the login error message */}
+        {loginError && <div className="error">{loginError}</div>}
         {/* Submit button for the login form */}
         <div className="form-group">
           <button className="btn btn-primary" type='submit'>Login</button>

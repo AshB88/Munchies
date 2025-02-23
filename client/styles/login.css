@@ -56,6 +56,12 @@ input {
     background: rgba(45, 59, 5, 0.8)
 }
 
+.error {
+    color: var(--dark);
+    margin-top: 10px;
+    text-shadow: var(--light) 0 0 10px;
+  }
+
 
 
 /* New CSS */
