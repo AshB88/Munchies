@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Item from "../interfaces/Item.interface"; // Ensure correct import
 
+
 interface GroceryFormProps {
   onAddItem: (item: Item) => void;
 }
@@ -30,7 +31,7 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
   };
 
   return (
-    <div>
+    <div className="grocery-form">
       <h2>Add Item</h2>
       <div className="input-group">
         <label>Item</label>

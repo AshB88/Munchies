@@ -119,10 +119,10 @@ const GroceryPage: React.FC = () => {
         <GroceryForm onAddItem={addItem} />
       </div>
       <div className="card" id="grocery-list-container">
-        <div>
+        <div className="grocery-list">
+        <h2>Grocery List</h2>
           {groceryList.length > 0 && (
             <>
-            <h2>Grocery List</h2>
             <GroceryList
               groceryList={groceryList}
               onAddToFavorites={addToFavorites}

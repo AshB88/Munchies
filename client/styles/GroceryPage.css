@@ -39,11 +39,11 @@
 .grocery-page-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   padding: 20px;
-  width: 80%;
+  width: 90%;
   height: 90%;
 }
 
@@ -52,16 +52,24 @@
   flex-direction: column;
   align-items: center;
   background: rgba(195, 137, 24, 0.8);
+  /*background: rgba(80, 35, 13, 0.8);*/ /* Backup color */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px; /* Ensure the containers do not stretch too wide */
+  width: 400px; /* Ensure the containers do not stretch too wide */
   height: 425px;
   overflow: hidden;
   overflow-y: auto;
   -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
   scrollbar-width: none;  /* Hide scrollbar for Firefox */
+  overflow-x: auto;
+}
+
+.card h2 {
+  color: var(--secondary);
+  text-shadow: var(--secondary) 0 0 20px;
+  font-size: 2rem;
+  text-align: center;
 }
 
 .card::-webkit-scrollbar {
@@ -72,8 +80,45 @@
   flex: 1;
 }
 
+.grocery-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-button {
+  margin-top: 15px;
+  background-color: transparent;
+  border: none;
+  color: var(--secondary);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-button:hover {
+  color: var(--tertiary);
+  text-shadow: var(--light) 0 0 10px;
+}
+
 #grocery-list-container {
   flex: 1;
+}
+
+.grocery-list table {
+  list-style-type: none;
+  color: var(--dark);
+  border-collapse: collapse;
+}
+
+.grocery-list table td {
+  align-items: center;
+  padding: 5px;
+  background-color: transparent;
+  border-bottom: var(--tertiary) 2px solid;
+  max-width: 100px; /* Set a fixed width for each <td> element */
+  text-align: center; /* Center the text inside each <td> */
+  vertical-align: middle;
+  word-wrap: break-word; 
+  white-space: normal;
 }
 
 .grocery-item {
@@ -84,21 +129,24 @@
   border-bottom: 1px solid #ddd;
 }
 
-.icon-container {
-  display: flex;
-  gap: 10px;
+
+.grocery-list button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.favorite-icon:hover {
-  color: gold;
+#favorite:hover {
+  text-shadow: gold 0 0 20px;
 }
 
-.purchased-icon:hover {
-  color: green;
+#purchased:hover {
+  text-shadow: green 0 0 20px;
 }
 
-.delete-icon:hover {
-  color: red;
+#delete:hover {
+  text-shadow: red 0 0 20px;
 }
 
 @media screen and (max-width: 980px) {

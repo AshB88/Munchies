@@ -1,11 +1,20 @@
 :root {
     /* Neon colors */
+    
     --primary: #C38918;
     --secondary: #36033A;
     --tertiary: #2D3B05;
     --dark: #41020A;
     --light: #B90F2E;
 
+    /*Backup colors*/
+    /*
+    --primary: #50230D;
+    --secondary: #A89C94;
+    --tertiary: #7C6641;
+    --dark: #16100A;
+    --light: #DACCB9;
+    */
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -19,7 +28,8 @@ body {
     height: 100vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: var(--light);
-    background-image: url("../assets/munchiesNeon3.png");
+    background-image: url("../assets/munchiesNeon3.png"); /*backup image*/
+    /*background-image: url("../assets/munchies1.png");*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -86,32 +96,22 @@ header h1 {
     text-shadow: var(--light) 0 0 10px;
 }
 
-main {
-    
+main { 
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;  /* Ensure full width */
     height: calc(100vh - 81px);  /* Subtract header height */
-    /*margin-top: 81px;  /* Push it below the fixed header */
-    /*position: fixed;
+    margin-top: 81px;  /* Push it below the fixed header */
+    position: fixed;
     z-index: 1;
-    */
-    /* margin-top: calc(4vw + 20px); /* Adjust based on header's font size */
-    position: relative;
-    top: 81px; /* Adjust based on header height */
-    width: 100%;
-    overflow-y: auto; /* Enable scrolling */
-    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
-    scrollbar-width: none;  /* Hide scrollbar for Firefox */
-    overflow-y: auto;
 }
 
 main::-webkit-scrollbar {
     display: none;
 }
 
-.login-notice {
+.notice {
     text-align: center;
     background: rgba(195, 137, 24, 0.8);
     padding: 30px 30px;
@@ -128,6 +128,7 @@ main::-webkit-scrollbar {
         padding: 0 0 10px 0;
         justify-content: center;
         text-align: center;
+        background: rgba(195, 137, 24, 0.8);
     }
     
     header h1 {
@@ -144,6 +145,9 @@ main::-webkit-scrollbar {
     .nav-links {
         border-radius: 0;
         margin: 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
     }
 
     .navbar button a {
