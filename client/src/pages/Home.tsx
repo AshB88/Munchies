@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import auth from '../utils/auth';
-import GroceryList from './GroceryPage';
+import GroceryPage from './GroceryPage';
 
 const Home = () => {
     const [loginCheck, setLoginCheck] = useState(false);
@@ -18,7 +18,7 @@ const Home = () => {
                     <h2>Please log in to view your grocery list!</h2>
                 </div>
             ) : (
-                <GroceryList />
+                <GroceryPage />
             )}
         </>
     );

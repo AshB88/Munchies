@@ -1,115 +1,57 @@
-/* Old code */
-/*
 import React, { useState, useEffect } from "react";
 import "../../styles/GroceryPage.css";
 import GroceryForm from "../components/GroceryForm";
 import GroceryList from "../components/GroceryList";
 import Item from "../interfaces/Item.interface";
+import Auth from '../utils/auth';
+import { retrieveGroceryList, addGroceryItem, moveToPurchased as moveToPurchasedAPI, deleteGroceryItem } from '../api/groceryAPI';
 
 const GroceryPage: React.FC = () => {
   const [groceryList, setGroceryList] = useState<Item[]>([]);
-  const [favorites, setFavorites] = useState<Item[]>([]);
-  const [purchasedItems, setPurchasedItems] = useState<Item[]>([]);
 
   useEffect(() => {
-    const storedList = JSON.parse(localStorage.getItem("groceryList") || "[]");
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    const storedPurchased = JSON.parse(localStorage.getItem("purchasedItems") || "[]");
-
-    setGroceryList(storedList);
-    setFavorites(storedFavorites);
-    setPurchasedItems(storedPurchased);
+    const fetchData = async () => {
+      const list = await retrieveGroceryList();
+      setGroceryList(list);
+    };
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("groceryList", JSON.stringify(groceryList));
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems));
-  }, [groceryList, favorites, purchasedItems]);
-
-  const addItem = (item: Item) => {
-    setGroceryList([...groceryList, item]);
-  };
-
-  const moveToPurchased = (item: Item) => {
-    setGroceryList(groceryList.filter(g => g !== item));
-    setPurchasedItems([...purchasedItems, item]);
-  };
-
-  const deleteItem = (item: Item) => {
-    setGroceryList(groceryList.filter(g => g !== item));
-  };
-
-  const addToFavorites = (item: Item) => {
-    if (!favorites.find(fav => fav.name === item.name)) {
-      setFavorites([...favorites, item]);
+  const addItem = async (item: Item) => {
+    const addedItem = await addGroceryItem(item);
+    if (addedItem) {
+      setGroceryList([...groceryList, addedItem]);
     }
   };
 
-  return (
-    <div>
-      <div>
-      <GroceryForm onAddItem={addItem} />
-      </div>
-      <aside>
-      <h2>Grocery List</h2>
-        <GroceryList
-          groceryList={groceryList}
-          onAddToFavorites={addToFavorites}
-          onDeleteItem={deleteItem}
-          onMoveToPurchased={moveToPurchased}
-        />
-      </aside>
-    </div>
-  );
-};
-
-export default GroceryPage;
-*/
-
-import React, { useState, useEffect } from "react";
-import "../../styles/GroceryPage.css";
-import GroceryForm from "../components/GroceryForm";
-import GroceryList from "../components/GroceryList";
-import Item from "../interfaces/Item.interface";
-
-const GroceryPage: React.FC = () => {
-  const [groceryList, setGroceryList] = useState<Item[]>([]);
-  const [favorites, setFavorites] = useState<Item[]>([]);
-  const [purchasedItems, setPurchasedItems] = useState<Item[]>([]);
-
-  useEffect(() => {
-    const storedList = JSON.parse(localStorage.getItem("groceryList") || "[]");
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    const storedPurchased = JSON.parse(localStorage.getItem("purchasedItems") || "[]");
-
-    setGroceryList(storedList);
-    setFavorites(storedFavorites);
-    setPurchasedItems(storedPurchased);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("groceryList", JSON.stringify(groceryList));
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems));
-  }, [groceryList, favorites, purchasedItems]);
-
-  const addItem = (item: Item) => {
-    setGroceryList([...groceryList, item]);
+  const onDeleteItem = async (id: number) => {
+    const success = await deleteGroceryItem(id);
+    
+    if (success) {
+      setGroceryList(groceryList.filter(item => item.id !== id));
+    } else {
+      console.error("Failed to delete item from database");
+    }
   };
 
-  const moveToPurchased = (item: Item) => {
-    setGroceryList(groceryList.filter(g => g !== item));
-    setPurchasedItems([...purchasedItems, item]);
-  };
+  // Move item to purchased list
+  const moveToPurchased = async (item: Item) => {
+    // Get the token from Auth
+    const token = Auth.getToken();
 
-  const deleteItem = (item: Item) => {
-    setGroceryList(groceryList.filter(g => g !== item));
-  };
+    if (!token) {
+      console.error('No token found');
+      return;
+    }
 
-  const addToFavorites = (item: Item) => {
-    if (!favorites.find(fav => fav.name === item.name)) {
-      setFavorites([...favorites, item]);
+    // Call the API to move the item to the purchased list
+    const response = await moveToPurchasedAPI(item); // Pass the token to the API function
+
+    if (response && response.success) {
+      // Remove the item from the grocery list in the state after it's successfully moved
+      setGroceryList(groceryList.filter(g => g.id !== item.id));
+    } else {
+      console.error('Failed to move item');
     }
   };
 
@@ -121,15 +63,14 @@ const GroceryPage: React.FC = () => {
       <div className="card" id="grocery-list-container">
         <div className="grocery-list">
         <h2>Grocery List</h2>
-          {groceryList.length > 0 && (
-            <>
+          {groceryList.length > 0 ? (
             <GroceryList
               groceryList={groceryList}
-              onAddToFavorites={addToFavorites}
-              onDeleteItem={deleteItem}
-              onMoveToPurchased={moveToPurchased}
+              onDeleteItem={onDeleteItem}
+              setPurchasedItems={moveToPurchased}
             />
-          </>
+          ) : (
+            <p>No items yet.</p>
           )}
         </div>
       </div>
