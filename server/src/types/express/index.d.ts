@@ -1,7 +1,9 @@
-declare namespace Express {
+import { JwtPayload } from '../../../middleware/auth.js';
+
+declare global {
+  namespace Express {
     interface Request {
-      user?: {
-        username: string;
-      };
+      user?: JwtPayload;  // Use the JwtPayload type for the user object
     }
   }
+}
