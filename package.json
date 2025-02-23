@@ -27,6 +27,7 @@
     "wait-on": "^7.2.0"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "react": "^19.0.0",
     "react-icons": "^5.5.0"
   }

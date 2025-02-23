@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Request, Response } from 'express';
-import { PurchasedItems, User } from '../../models/index.js';  // Import the PurchasedItems and User models
+import { GroceryList, PurchasedItems, User } from '../../models/index.js';  // Import the PurchasedItems and User models
 import { authenticateToken } from '../../middleware/auth.js';  // Import authentication middleware
 
 const router = express.Router();
@@ -67,9 +67,9 @@ router.get('/:id', authenticateToken, async (req: Request, res: Response) => {
   }
 });
 
-// POST /purchased-list - Create a new purchased list item for the logged-in user
-router.post('/', authenticateToken, async (req: Request, res: Response) => {
-  const { category, name, quantity, price, store, date } = req.body;
+// POST /purchased-list/move-to-purchased/:id - Move item from grocery list to purchased list
+router.post('/move-to-purchased/:id', authenticateToken, async (req: Request, res: Response) => {
+  const { id } = req.params;
   const username = req.user?.username;  // Get the user identifier (username) from the JWT payload
 
   try {
@@ -86,21 +86,36 @@ router.post('/', authenticateToken, async (req: Request, res: Response) => {
 
     const userId = user.id;  // Get the actual userId from the User model
 
-    const newPurchasedItem = await PurchasedItems.create({
-      userId,  // Attach the logged-in user's userId to the item
-      category, 
-      name, 
-      quantity, 
-      price, 
-      store, 
-      date,
+    // Find the item in the grocery list
+    const item = await GroceryList.findOne({ where: { id, userId } });
+
+    if (!item) {
+      return res.status(404).json({ message: 'Item not found in grocery list' });
+    }
+
+    // Move the item to the purchased list
+    const purchasedItem = await PurchasedItems.create({
+      userId,
+      category: item.category,
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+      store: item.store,
+      date: item.date,
     });
 
-    return res.status(201).json(newPurchasedItem);  // Return the newly created item
+    // Remove the item from the grocery list
+    await item.destroy();
+
+    // Return the purchased item details
+    return res.json(purchasedItem);
+
   } catch (error: any) {
-    return res.status(400).json({ message: error.message });
+    console.error('Error moving item:', error);
+    return res.status(500).json({ message: error.message });
   }
 });
+
 
 // PUT /purchased-list/:id - Update a purchased list item by id for the logged-in user
 router.put('/:id', authenticateToken, async (req: Request, res: Response) => {
