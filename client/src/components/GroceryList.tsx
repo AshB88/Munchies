@@ -5,9 +5,10 @@ interface GroceryListProps {
   groceryList: Item[];
   onDeleteItem: (id: number) => void;
   setPurchasedItems: (item: Item) => void;  // Correct type for setPurchasedItems
+  onEditItem: (item: Item) => void; // Add onEditItem to GroceryListProps
 }
 
-const GroceryList: React.FC<GroceryListProps> = ({ groceryList, onDeleteItem, setPurchasedItems }) => {
+const GroceryList: React.FC<GroceryListProps> = ({ groceryList, onDeleteItem, setPurchasedItems, onEditItem }) => {
   const handleMoveToPurchased = async (item: Item) => {
     // Call the setPurchasedItems to move the item to the purchased list
     setPurchasedItems(item);
@@ -30,6 +31,9 @@ const GroceryList: React.FC<GroceryListProps> = ({ groceryList, onDeleteItem, se
               </td>
               <td>
                 <button id="delete" onClick={() => onDeleteItem(item.id)}>🗑</button>
+              </td>
+              <td>
+                <button id="edit" onClick={() => onEditItem(item)}>✏️</button>
               </td>
             </tr>
           ))}

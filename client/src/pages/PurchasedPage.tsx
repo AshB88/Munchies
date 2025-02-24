@@ -1,18 +1,21 @@
 import Item from "../interfaces/Item.interface";
 import React, { useState, useEffect } from "react";
 import "../../styles/purchased.css";
-import { retrievePurchasedList, deletePurchasedItem } from '../api/purchasedAPI';
+import { retrievePurchasedList, deletePurchasedItem, updatePurchasedItem } from '../api/purchasedAPI';
 import Auth from '../utils/auth';
+import EditItemForm from '../components/EditForm';
 
 const PurchasedItems: React.FC = () => {
   const [purchasedItems, setPurchasedItems] = useState<Item[]>([]);
+  const [editItem, setEditItem] = useState<Item | null>(null);
 
   // Fetch purchased items when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       try {
         const purchasedData = await retrievePurchasedList();
-        setPurchasedItems(purchasedData);
+        const sortedData = purchasedData.sort((a: Item, b: Item) => a.id - b.id);
+        setPurchasedItems(sortedData);
       } catch (error) {
         console.error('Error fetching purchased items:', error);
       }
@@ -31,10 +34,32 @@ const PurchasedItems: React.FC = () => {
       setPurchasedItems((prevItems) => prevItems.filter((item) => item.id !== id));
     }
   };
+
+  // Function to edit an item in the list
+  const handleEdit = (item: Item) => {
+    setEditItem(item);
+  };
+
+  const handleSave = async (updatedItem: Item) => {
+    const success = await updatePurchasedItem(updatedItem);
+
+    if (success) {
+      setPurchasedItems((prevItems) =>
+        prevItems.map((item) => (item.id === updatedItem.id ? updatedItem : item))
+      );
+      setEditItem(null);
+    }
+  }
+
+  const handleCancel = () => {
+    setEditItem(null);
+  }
   
   return (
     <>
-      {purchasedItems.length === 0 ? (
+    {editItem ? (
+      <EditItemForm item={editItem} onSave={handleSave} onCancel={handleCancel} />
+    ) :  purchasedItems.length === 0 ? (
         <div className='notice'>
           <h1>Purchased Items</h1>
           <h2>No Items Purchased Yet!</h2>
@@ -51,6 +76,7 @@ const PurchasedItems: React.FC = () => {
                 <th>Store</th>
                 <th>Date</th>
                 <th>Remove</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -63,9 +89,12 @@ const PurchasedItems: React.FC = () => {
                   <td>{item.date}</td>
                   <td>
                     <button onClick={() => handleRemove(item.id)} className="remove">
-                      Remove
+                    🗑
                     </button>
                   </td>
+                  <td>
+                    <button id="edit" onClick={() => handleEdit(item)}>✏️</button>
+                  </td>                  
                 </tr>
               ))}
             </tbody>

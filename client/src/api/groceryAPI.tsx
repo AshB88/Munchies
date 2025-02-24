@@ -100,5 +100,31 @@ const deleteGroceryItem = async (id: number) => {
   }
 };
 
+// Edit item in the grocery list
+const updateGroceryItem = async (item: Item) => {
+  try {
+    const response = await fetch(`/api/grocery-list/${item.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${Auth.getToken()}`, // Sending token to authenticate
+      },
+      body: JSON.stringify(item),
+    });
+
+    // Check if the response is successful
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Failed to edit grocery item');
+    }
+
+    const data = await response.json();
+    return data; // Return the edited item data
+  } catch (err) {
+    console.error('Error from editing item:', err);
+    return null; // Return null in case of error
+  }
+};
+
 // Export functions
-export { retrieveGroceryList, addGroceryItem, moveToPurchased, deleteGroceryItem };
+export { retrieveGroceryList, addGroceryItem, moveToPurchased, deleteGroceryItem, updateGroceryItem };

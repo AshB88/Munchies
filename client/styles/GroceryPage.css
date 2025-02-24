@@ -137,10 +137,6 @@
   cursor: pointer;
 }
 
-#favorite:hover {
-  text-shadow: gold 0 0 20px;
-}
-
 #purchased:hover {
   text-shadow: green 0 0 20px;
 }

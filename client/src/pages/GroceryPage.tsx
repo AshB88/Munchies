@@ -4,15 +4,18 @@ import GroceryForm from "../components/GroceryForm";
 import GroceryList from "../components/GroceryList";
 import Item from "../interfaces/Item.interface";
 import Auth from '../utils/auth';
-import { retrieveGroceryList, addGroceryItem, moveToPurchased as moveToPurchasedAPI, deleteGroceryItem } from '../api/groceryAPI';
+import { retrieveGroceryList, addGroceryItem, moveToPurchased as moveToPurchasedAPI, deleteGroceryItem, updateGroceryItem } from '../api/groceryAPI';
+import EditItemForm from '../components/EditForm';
 
 const GroceryPage: React.FC = () => {
   const [groceryList, setGroceryList] = useState<Item[]>([]);
+  const [editItem, setEditItem] = useState<Item | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const list = await retrieveGroceryList();
-      setGroceryList(list);
+      const sortedList = list.sort((a: Item, b: Item) => a.id - b.id); // Sort the list by id
+      setGroceryList(sortedList);
     };
     fetchData();
   }, []);
@@ -55,25 +58,48 @@ const GroceryPage: React.FC = () => {
     }
   };
 
+  // Edit item in the grocery list
+  const handleSave = async (item: Item) => {
+    const updatedItem = await updateGroceryItem(item);
+    if (updatedItem) {
+      setGroceryList((prevList) => 
+        prevList.map((g) => (g.id === item.id ? updatedItem : g))
+      );
+    }
+
+    setEditItem(null);
+  };
+
+  const handleCancel = () => {
+    setEditItem(null);
+  };
+
   return (
     <div className="grocery-page-container">
-      <div className="card" id="grocery-form-container">
-        <GroceryForm onAddItem={addItem} />
-      </div>
-      <div className="card" id="grocery-list-container">
-        <div className="grocery-list">
-        <h2>Grocery List</h2>
-          {groceryList.length > 0 ? (
-            <GroceryList
-              groceryList={groceryList}
-              onDeleteItem={onDeleteItem}
-              setPurchasedItems={moveToPurchased}
-            />
-          ) : (
-            <p>No items yet.</p>
-          )}
-        </div>
-      </div>
+      {editItem ? (
+        <EditItemForm item={editItem} onSave={handleSave} onCancel={handleCancel} />
+      ) : (
+        <>
+          <div className="card" id="grocery-form-container">
+            <GroceryForm onAddItem={addItem} />
+          </div>
+          <div className="card" id="grocery-list-container">
+            <div className="grocery-list">
+              <h2>Grocery List</h2>
+              {groceryList.length > 0 ? (
+                <GroceryList
+                  groceryList={groceryList}
+                  onDeleteItem={onDeleteItem}
+                  setPurchasedItems={moveToPurchased}
+                  onEditItem={setEditItem}
+                />
+              ) : (
+                <p>No items yet.</p>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
