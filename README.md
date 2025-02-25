@@ -14,7 +14,7 @@ Munchies is a useful application for storing your grocery list and information a
 
 ## Link to Application
 
-link will go here???
+https://munchies-0ii3.onrender.com
 
 ## Installation
 
@@ -66,7 +66,7 @@ The application can be used in the web browser or on your local device from port
 
 1.  The website link will take you to a login page, as shown below.
 
-    ![Munchies login page](./assets/???)
+    ![Munchies login page](./assets/login.png)
 
 2.  Click "Login". We have created three test accounts to log in with. You may use any of the following to access the website.
 
@@ -79,19 +79,17 @@ The application can be used in the web browser or on your local device from port
         Username: RadiantComet
         Password: password
 
-3.  Add items to your grocery list. Using the form, enter an item, then hit "Add". The item should populate in the list.
+3.  Add items to your grocery list. Using the form, enter an item, then hit "Add Item". The item should populate in the list.
 
-    ![grocery list form](./assets/???)
+    ![grocery form and list](./assets/grocery-page.png)
 
-4.  To move an item to the Purchased List, click the ?? icon. Navigate to the Purchased List page using the navigation bar at the top, and the item should appear on that page.
+4.  To move an item to the Purchased List, click the checkmark icon. Navigate to the Purchased List page using the navigation bar at the top, and the item should appear on that page.
 
-    ![Purchased List page](./assets/???)
+    ![purchased List page](./assets/purchased-page.png)
 
-5.  To discard an item on your grocery list, click the trash can icon.
+5.  To discard an item on either list, click the trash can icon. To edit an item, click the pencil icon. Edit any necessary information, then click save.
 
-    ![trash can icon](./assets/???)
-
-6.  Hit "Log out" when you are ready to log out.
+6.  Hit "Logout" when you are ready to log out.
 
 ## Credits
 
