@@ -95,11 +95,11 @@ The application can be used in the web browser or on your local device from port
 
 This project was a collaboration between students of the Rutgers University Coding Bootcamp, section RUT-VIRT-FSF-PT-10-2024-U-LOLC-MWTH, Group 1. Collaborators include Ashleigh Brown, Caleb Feliciano, Alex Newcomer, Tyreone Sarpong and Amelia Alvarado. Links to each of our GitHub profiles are below. Much of the back end code was sourced from a previous assignment (RUT-VIRT-FSF-PT-10-2024-U-LOLC > 14-Full-Stack-React > 25-Ins_JWT-Authentication-Review, located [here](https://git.bootcampcontent.com/Rutgers-University/RUT-VIRT-FSF-PT-10-2024-U-LOLC)). We also used this assignment to develop the login on the client side as well as some of the components, interfaces, and pages. All design aspects were developed by our team.
 
-Ashleigh Brown: AshB88 (https://github.com/AshB88)
-Caleb Feliciano: Calebfeliciano (https://github.com/Calebfeliciano)
-Alex Newcomer: AlexMNewcomer (https://github.com/AlexMNewcomer)
-Tyreone Sarpong: Tyreone58 (https://github.com/Tyreone58)
-Amelia Alvarado: amelia1105 (https://github.com/amelia1105)
+Ashleigh Brown: AshB88 (https://github.com/AshB88)  
+Caleb Feliciano: Calebfeliciano (https://github.com/Calebfeliciano)  
+Alex Newcomer: AlexMNewcomer (https://github.com/AlexMNewcomer)  
+Tyreone Sarpong: Tyreone58 (https://github.com/Tyreone58)  
+Amelia Alvarado: amelia1105 (https://github.com/amelia1105)  
 
 ## License
 
