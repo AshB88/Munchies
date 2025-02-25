@@ -9,6 +9,7 @@ import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 import PurchasedItems from './pages/PurchasedPage.tsx';
 
+// Create a router with the routes for the application
 const router = createBrowserRouter([
   {
     path: '/',
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
   }
 ])
 
+// Render the application
 const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);

@@ -6,6 +6,7 @@ interface GroceryFormProps {
   onAddItem: (item: Item) => Promise<void>;
 }
 
+// Define the GroceryForm component
 const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
   const [newItem, setNewItem] = useState<Item>({
     id: -1,  // Temporary id or leave as -1 if not yet assigned
@@ -17,6 +18,7 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
     date: new Date().toISOString().split("T")[0],
   });
 
+  // Define the handleChange function
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setNewItem((prevState) => ({
@@ -27,6 +29,7 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
     }));
   };
 
+  // Define the handleSubmit function
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await onAddItem(newItem);  // Call the passed-in function
@@ -41,6 +44,7 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
     });
   };
 
+  // Return the form
   return (
     <div className="grocery-form">
       <h2>Add Item</h2>

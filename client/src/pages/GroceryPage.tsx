@@ -8,9 +8,12 @@ import { retrieveGroceryList, addGroceryItem, moveToPurchased as moveToPurchased
 import EditItemForm from '../components/EditForm';
 
 const GroceryPage: React.FC = () => {
+  // State to hold the grocery list
   const [groceryList, setGroceryList] = useState<Item[]>([]);
+  // State to hold the item being edited
   const [editItem, setEditItem] = useState<Item | null>(null);
 
+  // Fetch the grocery list when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       const list = await retrieveGroceryList();
@@ -20,6 +23,7 @@ const GroceryPage: React.FC = () => {
     fetchData();
   }, []);
 
+  // Function to add an item to the grocery list
   const addItem = async (item: Item) => {
     const addedItem = await addGroceryItem(item);
     if (addedItem) {
@@ -27,6 +31,7 @@ const GroceryPage: React.FC = () => {
     }
   };
 
+  // Function to delete an item from the grocery list
   const onDeleteItem = async (id: number) => {
     const success = await deleteGroceryItem(id);
     
@@ -37,7 +42,7 @@ const GroceryPage: React.FC = () => {
     }
   };
 
-  // Move item to purchased list
+  // Function to move an item to the purchased list
   const moveToPurchased = async (item: Item) => {
     // Get the token from Auth
     const token = Auth.getToken();
@@ -58,7 +63,7 @@ const GroceryPage: React.FC = () => {
     }
   };
 
-  // Edit item in the grocery list
+  // Function to handle saving an edited item
   const handleSave = async (item: Item) => {
     const updatedItem = await updateGroceryItem(item);
     if (updatedItem) {
@@ -70,6 +75,7 @@ const GroceryPage: React.FC = () => {
     setEditItem(null);
   };
 
+  // Function to handle canceling the edit
   const handleCancel = () => {
     setEditItem(null);
   };
@@ -77,6 +83,7 @@ const GroceryPage: React.FC = () => {
   return (
     <div className="grocery-page-container">
       {editItem ? (
+        // Render the edit form if an item is being edited
         <EditItemForm item={editItem} onSave={handleSave} onCancel={handleCancel} />
       ) : (
         <>
@@ -87,6 +94,7 @@ const GroceryPage: React.FC = () => {
             <div className="grocery-list">
               <h2>Grocery List</h2>
               {groceryList.length > 0 ? (
+                // Render the grocery list if there are items
                 <GroceryList
                   groceryList={groceryList}
                   onDeleteItem={onDeleteItem}
@@ -94,6 +102,7 @@ const GroceryPage: React.FC = () => {
                   onEditItem={setEditItem}
                 />
               ) : (
+                // Render a message if there are no items
                 <p>No items yet.</p>
               )}
             </div>

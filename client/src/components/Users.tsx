@@ -7,6 +7,7 @@ interface UserListProps {
     users: UserData[] | null; // users can be an array of UserData objects or null
 }
 
+// Define the UserList component
 const UserList: React.FC<UserListProps> = ({ users }) => {
     return (
         <>
