@@ -1,41 +1,3 @@
-/*
-.grocery-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.grocery-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
-
-.icon-container {
-  display: flex;
-  gap: 10px;
-}
-
-.icon {
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: color 0.2s ease-in-out;
-}
-
-.favorite-icon:hover {
-  color: gold;
-}
-
-.purchased-icon:hover {
-  color: green;
-}
-
-.delete-icon:hover {
-  color: red;
-}
-*/
-
 .grocery-page-container {
   display: flex;
   flex-direction: row;
@@ -52,7 +14,6 @@
   flex-direction: column;
   align-items: center;
   background: rgba(195, 137, 24, 0.8);
-  /*background: rgba(80, 35, 13, 0.8);*/ /* Backup color */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);

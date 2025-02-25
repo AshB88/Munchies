@@ -7,14 +7,6 @@
     --dark: #41020A;
     --light: #B90F2E;
 
-    /*Backup colors*/
-    /*
-    --primary: #50230D;
-    --secondary: #A89C94;
-    --tertiary: #7C6641;
-    --dark: #16100A;
-    --light: #DACCB9;
-    */
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -28,8 +20,7 @@ body {
     height: 100vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: var(--light);
-    background-image: url("../assets/munchiesNeon3.png"); /*backup image*/
-    /*background-image: url("../assets/munchies1.png");*/
+    background-image: url("../assets/munchiesNeon3.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -123,6 +114,63 @@ main::-webkit-scrollbar {
     text-shadow: var(--light) 0 0 10px;
 }
 
+.editForm {
+    display: flex;
+    flex-direction: column;
+    background: rgba(45, 59, 5, 0.8);
+    color: var(--primary);
+    padding: 15px 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--light) 0 0 10px;
+}
+
+.editForm h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 10px;
+}
+
+.editForm label {
+    color: var(--primary);
+    font-weight: bold;
+    margin: 5px;
+}
+
+.editForm input {
+    background: rgba(195, 137, 24, 0.8);
+    color: var(--dark);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add space between buttons */
+    margin-top: 10px;
+}
+
+
+.editButton {
+    background: transparent;
+    color: var(--primary);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    font-size:large;
+    border: none;
+    width: 100px;
+}
+
+.editForm button:hover {
+    background: rgba(195, 137, 24, 0.8);
+    color: var(--dark);
+    text-shadow: var(--light) 0 0 10px;
+}
+
 @media screen and (max-width: 980px) {
     header {
         padding: 0 0 10px 0;
@@ -158,167 +206,4 @@ main::-webkit-scrollbar {
 
 }
 
-
-
-
-
-
-
-/* New CSS */
-/*
-body {
-    background-color: var(--dark);
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-
-h1,
-h2,
-h3 {
-    margin: 0;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    background-color: var(--secondary);
-    box-shadow: 0 5px 35px rgba(146, 204, 206, 0.4);
-    padding-bottom: 10px;
-    background-image: linear-gradient(to right, var(--dark), var(--primary), var(--dark));
-}
-
-header h1 {
-    color: var(--dark);
-    padding: 10px;
-    margin: 0;
-    font-size: 4vw;
-    line-height: 1;
-    text-shadow: var(--primary) 0 0 10px;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 5px;
-}
-
-.navbar button {
-    background-color: transparent;
-    border: none;
-    font-size: larger;
-    border-radius: 5px;
-    padding: 10px 10px;
-}
-
-.navbar button a {
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-@media screen and (max-width: 980px) {
-    header {
-      padding: 0 0 10px 0;
-      justify-content: center;
-      text-align: center;
-    }
-
-    header h1 {
-      width: 100%;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      font-size: 10vw;
-      background-color: var(--dark);
-      color: var(--light)
-    }
-
-    .navbar button a {
-        color: var(--dark);
-        text-decoration: none;
-        font-weight: bold;
-    }
-}
-  
-@media screen and (max-width:768px) {
-   header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-}
-  
-@media screen and (max-width: 495px) {
-  header h1 {
-    font-size: 20vw;
-  }
-
-
-*/
-
-
-
-
-
-/* Original CSS */
-/*
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--primary);
-    color: var(--dark);
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-image: linear-gradient(to right, var(--dark), var(--primary), var(--dark));
-    padding: 10px 20px;
-    border-bottom: var(--dark) 4px solid;
-    box-shadow: var(--dark) 0px 1px 5px;
-}
-
-.navbar h1 {
-    text-shadow: var(--primary) 0px 2px 18px;
-    padding: 5px;
-    border-radius: 10px;
-    color: var(--light);
-}
-
-.navbar button {
-    background-image: linear-gradient(45deg, var(--primary), var(--secondary));
-    box-shadow: var(--primary) -2px 2px 10px;
-}
-
-button {
-    background-color: var(--tertiary);
-    border: var(--primary) 2px solid;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-}
-
-button a {
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: var(--primary);
-    color: var(--dark);
-    border: var(--dark) 2px solid;
-    box-shadow: var(--dark) 2px 2px 10px;
-}
-*/
 
