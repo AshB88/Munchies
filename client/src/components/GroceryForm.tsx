@@ -45,27 +45,27 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
     <div className="grocery-form">
       <h2>Add Item</h2>
       <div className="input-group">
-        <label>Item</label>
+        <label>Item:</label>
         <input type="text" name="name" value={newItem.name} onChange={handleChange} />
       </div>
 
       <div className="input-group">
-        <label>Quantity</label>
+        <label>Quantity:</label>
           <input type="number" name="quantity" value={newItem.quantity} onChange={handleChange} />
       </div>
 
       <div className="input-group">
-        <label>Price</label>
+        <label>Price:</label>
           <input type="number" name="price" value={newItem.price ?? ''} onChange={handleChange} />
       </div>
 
       <div className="input-group">
-        <label>Store</label>
+        <label>Store:</label>
         <input type="text" name="store" value={newItem.store ?? ''} onChange={handleChange} />
       </div>
 
       <div className="input-group">
-        <label>Date</label>
+        <label>Date:</label>
         <input type="date" name="date" value={newItem.date} onChange={handleChange} />
       </div>
 

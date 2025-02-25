@@ -24,7 +24,8 @@ const EditItemForm: React.FC<EditItemFormProps> = ({ item, onSave, onCancel }) =
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="editForm">
+      <h2>Edit Item</h2>
       <div>
         <label>Name:</label>
         <input type="text" name="name" value={formData.name} onChange={handleChange} />
@@ -45,8 +46,10 @@ const EditItemForm: React.FC<EditItemFormProps> = ({ item, onSave, onCancel }) =
         <label>Date:</label>
         <input type="date" name="date" value={formData.date} onChange={handleChange} />
       </div>
-      <button type="submit">Save</button>
-      <button type="button" onClick={onCancel}>Cancel</button>
+      <div className='button-container'>
+        <button type="submit" className="editButton">Save</button>
+        <button type="button" className="editButton" onClick={onCancel}>Cancel</button>
+      </div>
     </form>
   );
 };
