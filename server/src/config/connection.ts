@@ -4,7 +4,14 @@ dotenv.config();
 import { Sequelize } from 'sequelize';
 
 const sequelize = process.env.DB_URL
-  ? new Sequelize(process.env.DB_URL)
+  ? new Sequelize(process.env.DB_URL, {
+      dialectOptions: {
+        ssl: {
+          require: true, // Enable SSL
+          rejectUnauthorized: false, // Disable certificate validation
+        },
+      },
+    })
   : new Sequelize(
       process.env.DB_NAME || '',
       process.env.DB_USER || '',
