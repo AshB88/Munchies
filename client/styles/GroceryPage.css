@@ -1,121 +1,190 @@
+/* Container for the grocery cards */
 .grocery-page-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  width: 90%;
-  height: 90%;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row; /* Arrange children in a row */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  gap: 15px; /* Space between children */
+  padding: 20px; /* Padding inside the container */
+  width: 80%; /* Set the width of the container */
+  height: 90%; /* Set the height of the container */
 }
 
+/* Styles for the card elements */
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: rgba(195, 137, 24, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  width: 400px; /* Ensure the containers do not stretch too wide */
-  height: 425px;
-  overflow: hidden;
-  overflow-y: auto;
-  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
-  scrollbar-width: none;  /* Hide scrollbar for Firefox */
-  overflow-x: auto;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange children in a column */
+  align-items: center; /* Center children horizontally */
+  background: rgba(195, 137, 24, 0.8); /* Background color with transparency */
+  padding: 30px; /* Padding inside the card */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  width: 400px; /* Fixed width for the card */
+  height: 450px; /* Fixed height for the card */
 }
 
+/* Styles for the card headings */
 .card h2 {
-  color: var(--secondary);
-  text-shadow: var(--secondary) 0 0 20px;
-  font-size: 2rem;
-  text-align: center;
+  color: var(--secondary); /* Text color */
+  text-shadow: var(--secondary) 0 0 20px; /* Text shadow */
+  font-size: 2rem; /* Font size */
+  text-align: center; /* Center align text */
 }
 
+/* Hide the scrollbar for the card */
 .card::-webkit-scrollbar {
   display: none;
 }
 
+/* Container for the grocery form */
 #grocery-form-container {
-  flex: 1;
+  flex: 1; /* Allow the container to grow and fill available space */
 }
 
+/* Styles for the grocery form */
 .grocery-form {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange children in a column */
 }
 
+/* Styles for the add button */
 .add-button {
-  margin-top: 15px;
-  background-color: transparent;
-  border: none;
-  color: var(--secondary);
-  font-size: 1.2rem;
-  font-weight: bold;
+  margin-top: 15px; /* Margin on top */
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  color: var(--secondary); /* Text color */
+  font-size: 1.2rem; /* Font size */
+  font-weight: bold; /* Bold text */
 }
 
+/* Hover effect for the add button */
 .add-button:hover {
-  color: var(--tertiary);
-  text-shadow: var(--light) 0 0 10px;
+  color: var(--tertiary); /* Change text color on hover */
+  text-shadow: var(--light) 0 0 10px; /* Text shadow on hover */
 }
 
+/* Container for the grocery list */
 #grocery-list-container {
-  flex: 1;
+  flex: 1; /* Allow the container to grow and fill available space */
+  overflow: hidden; /* Hide overflow */
+  overflow-y: auto; /* Enable vertical scrolling */
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
+  overflow-x: auto; /* Enable horizontal scrolling */
 }
 
+/* Styles for the grocery list table */
 .grocery-list table {
-  list-style-type: none;
-  color: var(--dark);
-  border-collapse: collapse;
+  list-style-type: none; /* Remove list style */
+  color: var(--dark); /* Text color */
+  border-collapse: collapse; /* Collapse borders */
 }
 
+/* Styles for the table cells */
 .grocery-list table td {
-  align-items: center;
-  padding: 5px;
-  background-color: transparent;
-  border-bottom: var(--tertiary) 2px solid;
-  max-width: 100px; /* Set a fixed width for each <td> element */
-  text-align: center; /* Center the text inside each <td> */
-  vertical-align: middle;
-  word-wrap: break-word; 
-  white-space: normal;
+  align-items: center; /* Center align items */
+  padding: 5px; /* Padding inside cells */
+  background-color: transparent; /* Transparent background */
+  border-bottom: var(--tertiary) 2px solid; /* Bottom border */
+  max-width: 100px; /* Fixed width for cells */
+  text-align: center; /* Center align text */
+  vertical-align: middle; /* Middle align text */
+  word-wrap: break-word; /* Allow word wrapping */
+  white-space: normal; /* Normal white space handling */
 }
 
+/* Styles for individual grocery items */
 .grocery-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center align items */
+  padding: 8px; /* Padding inside items */
+  border-bottom: 1px solid #ddd; /* Bottom border */
 }
 
-
+/* Styles for buttons within the grocery list */
 .grocery-list button {
-  background-color: transparent;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor */
 }
 
+/* Hover effect for the purchased button */
 #purchased:hover {
-  text-shadow: green 0 0 20px;
+  text-shadow: green 0 0 20px; /* Green text shadow on hover */
 }
 
+/* Hover effect for the delete button */
 #delete:hover {
-  text-shadow: red 0 0 20px;
+  text-shadow: red 0 0 20px; /* Red text shadow on hover */
 }
 
+/* Container for the toggle buttons */
+.toggle-container {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange children in a column */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center align items vertically */
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
+  max-width: 400px; /* Maximum width */
+  margin: auto; /* Center the container */
+}
+
+/* Styles for the toggle buttons */
+.toggle-buttons {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between buttons */
+  width: 100%; /* Full width */
+  margin-top: 10px; /* Margin on top */
+}
+
+/* Styles for individual toggle buttons */
+.toggle-buttons button {
+  background: rgba(45, 59, 5, 0.8); /* Background color with transparency */
+  color: var(--secondary); /* Text color */
+  text-shadow: var(--light) 0 0 10px; /* Text shadow */
+  border: none; /* No border */
+  padding: 8px 15px; /* Padding inside buttons */
+  cursor: pointer; /* Pointer cursor */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Styles for disabled toggle buttons */
+.toggle-buttons button:disabled {
+  cursor: not-allowed; /* Not-allowed cursor */
+  background-color: gray; /* Gray background */
+}
+
+/* Media query for screens with a max width of 980px */
 @media screen and (max-width: 980px) {
-  
   .card {
-    height: 100px;
+    height: 470px; /* Adjust height for smaller screens */
   }
 
   .grocery-page-container {
-    padding-top: 250px;
-    flex-direction: column;
-    gap: 20px;
-    position: fixed;
+    padding-top: 100px; /* Adjust padding for smaller screens */
+    position: fixed; /* Fixed position */
+  }
+}
+
+/* Media query for screens with a max width of 768px */
+@media screen and (max-width: 768px) {
+  .card {
+    width: 300px; /* Adjust width for smaller screens */
+    height: 445px; /* Adjust height for smaller screens */
+  }
+
+  .card h2 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .add-button {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .grocery-list table td {
+    padding: 3px; /* Adjust padding for smaller screens */
   }
 }
