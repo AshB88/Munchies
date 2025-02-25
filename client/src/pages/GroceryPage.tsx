@@ -3,15 +3,31 @@ import "../../styles/GroceryPage.css";
 import GroceryForm from "../components/GroceryForm";
 import GroceryList from "../components/GroceryList";
 import Item from "../interfaces/Item.interface";
+import EditItemForm from '../components/EditForm';
 import Auth from '../utils/auth';
 import { retrieveGroceryList, addGroceryItem, moveToPurchased as moveToPurchasedAPI, deleteGroceryItem, updateGroceryItem } from '../api/groceryAPI';
-import EditItemForm from '../components/EditForm';
+
 
 const GroceryPage: React.FC = () => {
   // State to hold the grocery list
   const [groceryList, setGroceryList] = useState<Item[]>([]);
   // State to hold the item being edited
   const [editItem, setEditItem] = useState<Item | null>(null);
+  // State for active card
+  const [activeCard, setActiveCard] = useState(0);
+  // State for smaller screen
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 980);
+
+  //Detect screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 980);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
 
   // Fetch the grocery list when the component mounts
   useEffect(() => {
@@ -80,37 +96,66 @@ const GroceryPage: React.FC = () => {
     setEditItem(null);
   };
 
-  return (
-    <div className="grocery-page-container">
-      {editItem ? (
-        // Render the edit form if an item is being edited
-        <EditItemForm item={editItem} onSave={handleSave} onCancel={handleCancel} />
+  // Toggle card navigation
+  const nextCard = () => setActiveCard((activeCard + 1) % 2);
+  const prevCard = () => setActiveCard((activeCard - 1 +2) % 2);
+
+return (
+  <div className="grocery-page-container">
+    {editItem ? (
+      <EditItemForm item={editItem} onSave={handleSave} onCancel={handleCancel} />
+    ) : (
+      isSmallScreen ? (
+        <div className="toggle-container">
+          <div className="card">
+            {activeCard === 0 ? (
+              <>
+                <GroceryForm onAddItem={addItem} />
+              </>
+            ) : (
+              <>
+                <h2>Grocery List</h2>
+                {groceryList.length > 0 ? (
+                  <GroceryList
+                    groceryList={groceryList}
+                    onDeleteItem={onDeleteItem}
+                    setPurchasedItems={moveToPurchased}
+                    onEditItem={setEditItem}
+                  />
+                ) : (
+                  <p>No items yet.</p>
+                )}
+              </>
+            )}
+            <div className="toggle-buttons">
+              <button onClick={prevCard} disabled={activeCard === 0}>&lt; Prev</button>
+              <button onClick={nextCard} disabled={activeCard === 1}>Next &gt;</button>
+            </div>
+          </div>
+        </div>
       ) : (
         <>
           <div className="card" id="grocery-form-container">
             <GroceryForm onAddItem={addItem} />
           </div>
           <div className="card" id="grocery-list-container">
-            <div className="grocery-list">
-              <h2>Grocery List</h2>
-              {groceryList.length > 0 ? (
-                // Render the grocery list if there are items
-                <GroceryList
-                  groceryList={groceryList}
-                  onDeleteItem={onDeleteItem}
-                  setPurchasedItems={moveToPurchased}
-                  onEditItem={setEditItem}
-                />
-              ) : (
-                // Render a message if there are no items
-                <p>No items yet.</p>
-              )}
-            </div>
+            <h2>Grocery List</h2>
+            {groceryList.length > 0 ? (
+              <GroceryList
+                groceryList={groceryList}
+                onDeleteItem={onDeleteItem}
+                setPurchasedItems={moveToPurchased}
+                onEditItem={setEditItem}
+              />
+            ) : (
+              <p>No items yet.</p>
+            )}
           </div>
         </>
-      )}
-    </div>
-  );
+      )
+    )}
+  </div>
+);
 };
 
 export default GroceryPage;

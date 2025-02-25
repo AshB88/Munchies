@@ -1,3 +1,4 @@
+/* Styles for the purchased items container */
 .purchased-items {
     display: flex;
     flex-direction: column;
@@ -14,51 +15,27 @@
     overflow: hidden;
 }
 
+/* Styles for the purchased items header */
 .purchased-items h1 {
     color: var(--secondary);
-    text-shadow: var(--primary) 0 0 20px;
+    text-shadow: var(--light) 0 0 20px;
     font-size: 3rem;
+    background: rgba(195, 137, 24, 0.8);
+    border-radius: 10px;
+    padding: 10px;
 }
 
+/* Styles for the purchased items table */
 .purchased-items table {
-    table-layout: fixed;
     width: 100%;
-    min-width: 430px;
+    min-width: 600px; /* Set a minimum width for the table */
     border-collapse: collapse; /* Ensure borders collapse into a single border */
     overflow-x: auto;
     overflow-y: auto;
 }
 
-.purchased-items th {
-    width: auto; /* Allow thead cells to adjust their width */
-    border-bottom: var(--tertiary) 2px solid;
-    color: var(--secondary);
-    text-shadow: var(--secondary) 0 0 10px;
-    font-size: 1.7rem;
-}
-
-.purchased-items tbody {
-    display: block;
-    max-height: 300px; /* Adjust the height as needed */
-    overflow-y: auto;
-    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
-    scrollbar-width: none;  /* Hide scrollbar for Firefox */
-}
-
-.purchased-items tbody::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
-}
-
-.purchased-items tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    background: rgba(195, 137, 24, 0.8);
-}
-
-.purchased-items table td {
-    width: 150px;
-    height: 15px;
+/* Styles for the table headers and cells */
+.purchased-items th, .purchased-items td {
     padding: 10px;
     text-align: center;
     vertical-align: middle;
@@ -68,6 +45,30 @@
     color: var(--dark);
 }
 
+/* Styles for the table body */
+.purchased-items tbody {
+    display: block;
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.purchased-items tbody::-webkit-scrollbar {
+    display: none;
+}
+
+/* Styles for the table rows */
+.purchased-items tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background: rgba(195, 137, 24, 0.8);
+}
+
+/* Styles for the buttons within table cells */
 td button {
     background-color: transparent;
     border: none;
@@ -77,12 +78,34 @@ td button {
     cursor: pointer;
 }
 
+/* Hover effect for the buttons within table cells */
 td button:hover {
     color: var(--secondary);
     text-shadow: var(--light) 0 0 10px;
 }
 
 /* Add media queries for responsive design */
+
+/* Media query for screens with a max width of 980px */
+@media screen and (max-width: 980px) {
+    .purchased-items {
+        width: 90%;
+    }
+
+    .purchased-items h1 {
+        font-size: 2.5rem; /* Adjust header font size for smaller screens */
+    }
+
+    .purchased-items table {
+        min-width: 300px; /* Adjust minimum width for smaller screens */
+    }
+
+    .purchased-items th, .purchased-items td {
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Media query for screens with a max width of 768px */
 @media screen and (max-width: 768px) {
     .purchased-items table {
         width: 100%;
@@ -94,10 +117,23 @@ td button:hover {
     }
 
     .purchased-items th {
-        font-size: 1.2rem; /* Adjust header font size for smaller screens */
+        font-size: 0.8rem; /* Adjust header font size for smaller screens */
+    }
+
+    .purchased-items h1 {
+        font-size: 2.5rem; /* Adjust header font size for smaller screens */
+    }
+
+    .purchased-items td {
+        font-size: 0.7rem; /* Adjust table data font size for smaller screens */
+    }
+
+    td button {
+        font-size: 0.9rem; /* Adjust button font size for smaller screens */
     }
 }
 
+/* Media query for screens with a max width of 480px */
 @media screen and (max-width: 480px) {
     .purchased-items table {
         width: 100%;
