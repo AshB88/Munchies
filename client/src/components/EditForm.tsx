@@ -1,12 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Item from '../interfaces/Item.interface';
 
+// Define the props for the EditItemForm component
 interface EditItemFormProps {
   item: Item;
   onSave: (updatedItem: Item) => void;
   onCancel: () => void;
 }
 
+// EditItemForm component
 const EditItemForm: React.FC<EditItemFormProps> = ({ item, onSave, onCancel }) => {
   const [formData, setFormData] = useState<Item>(item);
 
@@ -18,11 +20,13 @@ const EditItemForm: React.FC<EditItemFormProps> = ({ item, onSave, onCancel }) =
     });
   };
 
+// Define the handleSubmit function
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     onSave(formData);
   };
 
+  // Return the form
   return (
     <form onSubmit={handleSubmit}>
       <div>

@@ -24,6 +24,7 @@ const retrievePurchasedList = async () => {
   }
 };
 
+// Delete item from the purchased list
 const deletePurchasedItem = async (id: number) => {
   try {
     const response = await fetch(`/api/purchased-list/${id}`, {

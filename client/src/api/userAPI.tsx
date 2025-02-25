@@ -1,5 +1,6 @@
 import Auth from '../utils/auth';
 
+// Retrieve users list
 const retrieveUsers = async () => {
   try {
     const response = await fetch('/api/users', {

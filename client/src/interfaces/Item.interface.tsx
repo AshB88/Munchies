@@ -1,3 +1,4 @@
+//interface for the Item object
 export default interface Item {
     id: number;
     category: string | null;
