@@ -187,4 +187,8 @@
   .grocery-list table td {
     padding: 3px; /* Adjust padding for smaller screens */
   }
+
+  .grocery-list button {
+      font-size: 0.7rem; /* Adjust button font size for smaller screens */
+  }
 }

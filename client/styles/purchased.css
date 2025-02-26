@@ -117,7 +117,7 @@ td button:hover {
     }
 
     .purchased-items th {
-        font-size: 0.8rem; /* Adjust header font size for smaller screens */
+        font-size: 0.6rem; /* Adjust header font size for smaller screens */
     }
 
     .purchased-items h1 {
@@ -129,7 +129,7 @@ td button:hover {
     }
 
     td button {
-        font-size: 0.9rem; /* Adjust button font size for smaller screens */
+        font-size: 0.7rem; /* Adjust button font size for smaller screens */
     }
 }
 
@@ -137,14 +137,9 @@ td button:hover {
 @media screen and (max-width: 480px) {
     .purchased-items table {
         width: 100%;
-        font-size: 0.8rem; /* Further adjust font size for very small screens */
     }
 
     .purchased-items th, .purchased-items td {
         padding: 3px; /* Further adjust padding for very small screens */
-    }
-
-    .purchased-items th {
-        font-size: 1rem; /* Further adjust header font size for very small screens */
     }
 }
